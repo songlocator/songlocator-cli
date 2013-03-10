@@ -1,0 +1,24 @@
+{
+  "name": "songlocator-cli",
+  "version": "0.1.0",
+  "description": "SongLocator command line utilities",
+  "main": "songlocator-cli.js",
+  "dependencies": {
+    "songlocator-base": "~0.1.1"
+  },
+  "repository": {
+      "type": "git",
+      "url": "git://github.com/songlocator/songlocator-cli.git"
+  },
+  "bin": {
+    "songlocator-search": "bin/songlocator-search"
+  },
+  "homepage": "https://github.com/songlocator/songlocator-cli",
+  "keywords": ["songlocator", "api", "music", "streaming", "audio", "resolver"],
+  "author": {
+      "name": "Andrey Popp",
+      "email": "8mayday@gmail.com",
+      "url": "http://andreypopp.com"
+  },
+  "license": "MIT"
+}

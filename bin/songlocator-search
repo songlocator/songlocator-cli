@@ -1,0 +1,41 @@
+#!/usr/bin/env coffee
+
+{ResolverSet} = require 'songlocator-base'
+{parseArguments, readConfigSync} = require '../songlocator-cli'
+
+class MyResolverSet extends ResolverSet
+
+  onResults: (results) ->
+    return unless results.results.length > 0
+
+    for result in results.results
+      console.log result
+
+{args, opts} = parseArguments()
+
+config = if opts.config?
+  config = readConfigSync(opts.config)
+  if not config?
+    console.log "error: cannot read config from #{opts.config}"
+    process.exit(1)
+  config
+else
+  {}
+
+query = if args[0]? then args[0] else
+  console.log 'error: provide a search query as an argument'
+  process.exit(1)
+
+for resolver in opts.resolvers when not config[resolver]?
+  config[resolver] = {}
+
+resolvers = for name, cfg of config
+  Resolver = require("songlocator-#{name}").Resolver
+  new Resolver(cfg)
+
+if resolvers.length == 0
+  console.log 'error: specify at least on resolver via --use-<name> or config'
+  process.exit(1)
+
+resolver = new MyResolverSet(resolvers)
+resolver.search('1', query)
