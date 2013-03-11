@@ -4,7 +4,7 @@
   "description": "SongLocator command line utilities",
   "main": "songlocator-cli.js",
   "dependencies": {
-    "songlocator-base": "~0.1.1"
+    "songlocator-base": "~0.1.2"
   },
   "repository": {
       "type": "git",
