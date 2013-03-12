@@ -11,7 +11,8 @@
       "url": "git://github.com/songlocator/songlocator-cli.git"
   },
   "bin": {
-    "songlocator-search": "bin/songlocator-search"
+    "songlocator-search": "bin/songlocator-search",
+    "songlocator-resolve": "bin/songlocator-resolve"
   },
   "homepage": "https://github.com/songlocator/songlocator-cli",
   "keywords": ["songlocator", "api", "music", "streaming", "audio", "resolver"],
